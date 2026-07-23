@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — SnapCart</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css?v=14" />
+  <style>
+    body { background: var(--g50); }
+    .login-wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; }
+    .login-card {
+      width: 100%; max-width: 400px; background: #fff; border: 1px solid var(--g200);
+      border-radius: var(--rl); padding: 36px; box-shadow: var(--shadow-lg);
+    }
+    .login-card h1 { font-size: 24px; font-weight: 700; margin: 16px 0 6px; }
+    .login-card .sub { color: var(--g500); font-size: 14px; margin-bottom: 22px; }
+    .login-card label { display: block; font-size: 12px; font-weight: 600; margin-bottom: 4px; color: var(--g600); }
+    .login-card input {
+      width: 100%; padding: 11px 12px; border: 1px solid var(--g200); border-radius: 10px;
+      margin-bottom: 12px; outline: none;
+    }
+    .login-card input:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(0,113,227,.14); }
+    .login-err { color: var(--red); font-size: 13px; display: none; margin-top: 8px; }
+    .hint { font-size: 12px; color: var(--g400); margin-top: 14px; line-height: 1.45; }
+    .shell { display: none; }
+    .shell.on { display: block; }
+    .top {
+      position: sticky; top: 0; z-index: 40; height: 58px;
+      background: rgba(255,255,255,.9); backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--g200); display: flex; align-items: center;
+    }
+    .top .container { display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; }
+    .tabs { display: flex; flex-wrap: wrap; gap: 4px; }
+    .tabs button {
+      padding: 7px 12px; border-radius: 99px; font-size: 12px; font-weight: 500; color: var(--g600);
+    }
+    .tabs button:hover { background: var(--g100); }
+    .tabs button.on { background: var(--black); color: #fff; }
+    .main { padding: 28px 0 80px; }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 24px; }
+    .stat { background: #fff; border: 1px solid var(--g200); border-radius: var(--r); padding: 18px; }
+    .stat .l { font-size: 12px; color: var(--g500); font-weight: 500; }
+    .stat .v { font-size: 24px; font-weight: 700; margin-top: 4px; letter-spacing: -.03em; }
+    .panel {
+      background: #fff; border: 1px solid var(--g200); border-radius: var(--rl);
+      overflow: hidden; display: none; margin-bottom: 16px;
+    }
+    .panel.on { display: block; }
+    .panel-h {
+      display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap;
+      padding: 14px 18px; border-bottom: 1px solid var(--g200);
+    }
+    .panel-h h2 { font-size: 16px; font-weight: 700; }
+    .tools { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+    .tools input, .tools select, .body input, .body select, .body textarea {
+      padding: 8px 12px; border: 1px solid var(--g200); border-radius: 10px; font-size: 13px;
+      outline: none; background: var(--g50);
+    }
+    .tools input:focus, .body input:focus, .body select:focus, .body textarea:focus {
+      border-color: var(--blue); box-shadow: 0 0 0 3px rgba(0,113,227,.12);
+    }
+    .body { padding: 18px; }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+    .row.full { grid-template-columns: 1fr; }
+    .row label { display: block; font-size: 12px; font-weight: 600; color: var(--g600); margin-bottom: 4px; }
+    .row input, .row select, .row textarea { width: 100%; }
+    .checks { display: flex; flex-wrap: wrap; gap: 10px 14px; margin: 10px 0; font-size: 13px; }
+    .checks label { display: flex; align-items: center; gap: 6px; font-weight: 500; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th {
+      text-align: left; padding: 11px 14px; background: var(--g50); color: var(--g500);
+      font-size: 11px; text-transform: uppercase; letter-spacing: .04em; font-weight: 600;
+    }
+    td { padding: 12px 14px; border-top: 1px solid var(--g200); color: var(--g600); vertical-align: middle; }
+    tr:hover td { background: var(--g50); }
+    .thumb { width: 48px; height: 48px; border-radius: 8px; object-fit: cover; background: var(--g100); }
+    .acts { display: flex; gap: 6px; flex-wrap: wrap; }
+    .acts button, .acts select {
+      padding: 5px 10px; border-radius: 6px; border: 1px solid var(--g200);
+      background: #fff; font-size: 12px; font-weight: 500; cursor: pointer;
+    }
+    .acts button.danger { color: var(--red); border-color: #f5c6cb; }
+    .badge {
+      display: inline-flex; padding: 3px 10px; border-radius: 99px;
+      font-size: 11px; font-weight: 600; text-transform: capitalize;
+    }
+    .badge.pending { background: #fff3cd; color: #856404; }
+    .badge.confirmed { background: var(--blue-s); color: var(--blue); }
+    .badge.shipped { background: #e8f0fe; color: #1a73e8; }
+    .badge.delivered { background: var(--green-s); color: #1a7f37; }
+    .badge.cancelled { background: #fce8e6; color: var(--red); }
+    .empty { padding: 40px; text-align: center; color: var(--g400); }
+    .imgs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+    .imgs .chip { position: relative; width: 64px; height: 64px; border-radius: 8px; overflow: hidden; border: 1px solid var(--g200); }
+    .imgs .chip img { width: 100%; height: 100%; object-fit: cover; }
+    .imgs .chip button {
+      position: absolute; top: 2px; right: 2px; width: 18px; height: 18px; border-radius: 50%;
+      background: rgba(0,0,0,.65); color: #fff; font-size: 11px; border: none;
+    }
+    @media (max-width: 900px) {
+      .stats { grid-template-columns: 1fr 1fr; }
+      .row { grid-template-columns: 1fr; }
+      .tabs { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-wrap" id="loginView">
+    <div class="login-card">
+      <div class="logo">
+        <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M4 6h12a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2z"/><path d="M18 10c2 1 3.5 2.5 3.5 4.5S20 17 18 18"/></svg></span>
+        SnapCart
+      </div>
+      <h1>Admin Login</h1>
+      <p class="sub">Password is stored as a secure hash — never plain text in code.</p>
+      <form id="loginForm">
+        <label>Email</label>
+        <input type="email" id="loginEmail" required autocomplete="username" value="admin@snapcart.in" />
+        <label>Password</label>
+        <input type="password" id="loginPass" required autocomplete="current-password" />
+        <button type="submit" class="btn btn-primary btn-block btn-lg">Sign In</button>
+        <p class="login-err" id="loginErr">Invalid credentials</p>
+        <p class="hint">Default: admin@snapcart.in · SnapCart@Admin2026<br>Change this under Security after login.</p>
+      </form>
+      <p style="margin-top:18px;font-size:13px"><a href="index.html" style="color:var(--blue)">← Back to store</a></p>
+    </div>
+  </div>
+
+  <div class="shell" id="dashView">
+    <header class="top">
+      <div class="container">
+        <a href="index.html" class="logo" style="font-size:16px">
+          <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M4 6h12a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2z"/><path d="M18 10c2 1 3.5 2.5 3.5 4.5S20 17 18 18"/></svg></span>
+          Admin
+        </a>
+        <nav class="tabs" id="tabs">
+          <button type="button" class="on" data-p="orders">Orders</button>
+          <button type="button" data-p="products">Products</button>
+          <button type="button" data-p="reviews">Reviews</button>
+          <button type="button" data-p="banners">Banners</button>
+          <button type="button" data-p="settings">Settings</button>
+          <button type="button" data-p="security">Security</button>
+        </nav>
+        <button type="button" class="btn btn-sm btn-secondary" id="logoutBtn">Logout</button>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="container">
+        <div class="stats">
+          <div class="stat"><div class="l">Orders</div><div class="v" id="stOrders">0</div></div>
+          <div class="stat"><div class="l">Revenue</div><div class="v" id="stRev">₹0</div></div>
+          <div class="stat"><div class="l">Products</div><div class="v" id="stProd">0</div></div>
+          <div class="stat"><div class="l">Pending</div><div class="v" id="stPend">0</div></div>
+        </div>
+
+        <div class="panel on" id="p-orders">
+          <div class="panel-h">
+            <h2>Orders</h2>
+            <div class="tools">
+              <input type="search" id="orderQ" placeholder="Search…" style="width:160px" />
+              <select id="orderF">
+                <option value="">All</option>
+                <option>pending</option><option>confirmed</option><option>shipped</option>
+                <option>delivered</option><option>cancelled</option>
+              </select>
+              <button type="button" class="btn btn-sm btn-secondary" id="exportBtn">CSV</button>
+              <button type="button" class="btn btn-sm btn-primary" id="refOrders">Refresh</button>
+            </div>
+          </div>
+          <div style="overflow-x:auto">
+            <table>
+              <thead><tr><th>ID</th><th>Customer</th><th>Phone</th><th>City</th><th>Total</th><th>Status</th><th>Date</th><th></th></tr></thead>
+              <tbody id="ordersBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="panel" id="p-products">
+          <div class="panel-h">
+            <h2>Products</h2>
+            <button type="button" class="btn btn-sm btn-primary" id="newProd">+ Add Product</button>
+          </div>
+          <div style="overflow-x:auto">
+            <table>
+              <thead><tr><th></th><th>Name</th><th>URL</th><th>Price</th><th>Stock</th><th></th></tr></thead>
+              <tbody id="prodBody"></tbody>
+            </table>
+          </div>
+          <div class="body" id="prodEditor" style="display:none;border-top:1px solid var(--g200)">
+            <h3 style="font-size:15px;margin-bottom:12px" id="prodEditorTitle">Edit product</h3>
+            <input type="hidden" id="pId" />
+            <div class="row">
+              <div><label>Name *</label><input id="pName" /></div>
+              <div><label>Slug (URL) *</label><input id="pSlug" placeholder="intelligence-book" />
+                <p class="hint">Live: #product/<span id="slugPrev">…</span></p></div>
+            </div>
+            <div class="row">
+              <div><label>Sale price ₹ *</label><input id="pPrice" type="number" min="0" /></div>
+              <div><label>MRP ₹</label><input id="pMrp" type="number" min="0" /></div>
+            </div>
+            <div class="row">
+              <div><label>Stock</label><input id="pStock" type="number" min="0" /></div>
+              <div><label>Badge</label><input id="pBadge" placeholder="Best Seller" /></div>
+            </div>
+            <div class="row full"><div><label>Description</label><textarea id="pDesc" rows="3"></textarea></div></div>
+            <div class="checks">
+              <label><input type="checkbox" id="f_bestseller" /> Best Seller</label>
+              <label><input type="checkbox" id="f_featured" /> Featured</label>
+              <label><input type="checkbox" id="f_trending" /> Trending</label>
+              <label><input type="checkbox" id="f_latest" /> Latest</label>
+              <label><input type="checkbox" id="f_flash_sale" /> Flash Sale</label>
+              <label><input type="checkbox" id="f_recommended" /> Recommended</label>
+              <label><input type="checkbox" id="pActive" checked /> Active</label>
+            </div>
+            <div class="row full">
+              <div>
+                <label>Images</label>
+                <input type="file" id="pFiles" accept="image/*" multiple />
+                <div class="imgs" id="pImgs"></div>
+                <div style="display:flex;gap:8px;margin-top:8px">
+                  <input id="pImgUrl" placeholder="Or paste image URL / path" style="flex:1" />
+                  <button type="button" class="btn btn-sm btn-secondary" id="addImgUrl">Add</button>
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;gap:10px;margin-top:14px">
+              <button type="button" class="btn btn-primary" id="saveProd">Save Product</button>
+              <button type="button" class="btn btn-secondary" id="cancelProd">Cancel</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" id="p-reviews">
+          <div class="panel-h">
+            <h2>Reviews</h2>
+            <button type="button" class="btn btn-sm btn-primary" id="newRev">+ Add Review</button>
+          </div>
+          <div style="overflow-x:auto">
+            <table>
+              <thead><tr><th>Photo</th><th>Name</th><th>★</th><th>Review</th><th></th></tr></thead>
+              <tbody id="revBody"></tbody>
+            </table>
+          </div>
+          <div class="body" id="revEditor" style="display:none;border-top:1px solid var(--g200)">
+            <input type="hidden" id="rId" />
+            <div class="row">
+              <div><label>Name</label><input id="rName" /></div>
+              <div><label>Rating</label><select id="rRating"><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select></div>
+            </div>
+            <div class="row">
+              <div><label>Product slug</label><input id="rSlug" value="intelligence-book" /></div>
+              <div><label>Image</label><input type="file" id="rFile" accept="image/*" /><input type="hidden" id="rImg" /></div>
+            </div>
+            <div class="row full"><div><label>Review</label><textarea id="rText" rows="3"></textarea></div></div>
+            <label style="font-size:13px"><input type="checkbox" id="rVer" checked /> Verified purchase</label>
+            <div style="display:flex;gap:10px;margin-top:14px">
+              <button type="button" class="btn btn-primary" id="saveRev">Save</button>
+              <button type="button" class="btn btn-secondary" id="cancelRev">Cancel</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" id="p-banners">
+          <div class="panel-h">
+            <h2>Promo banners</h2>
+            <button type="button" class="btn btn-sm btn-primary" id="addBan">+ Add</button>
+          </div>
+          <div class="body">
+            <div id="banList"></div>
+            <button type="button" class="btn btn-primary" id="saveBan" style="margin-top:12px">Save Banners</button>
+          </div>
+        </div>
+
+        <div class="panel" id="p-settings">
+          <div class="panel-h"><h2>Store & hero</h2></div>
+          <div class="body">
+            <div class="row">
+              <div><label>Store name</label><input id="sName" /></div>
+              <div><label>Support email</label><input id="sEmail" /></div>
+            </div>
+            <div class="row">
+              <div><label>Phone</label><input id="sPhone" /></div>
+              <div><label>Hero image path</label><input id="sHero" /></div>
+            </div>
+            <div class="row full"><div><label>Hero title</label><input id="sTitle" /></div></div>
+            <div class="row full"><div><label>Hero subtitle</label><textarea id="sSub" rows="2"></textarea></div></div>
+            <div class="row">
+              <div><label>Upload hero</label><input type="file" id="sHeroFile" accept="image/*" /></div>
+              <div></div>
+            </div>
+            <button type="button" class="btn btn-primary" id="saveSet">Save Settings</button>
+          </div>
+        </div>
+
+        <div class="panel" id="p-security">
+          <div class="panel-h"><h2>Security</h2></div>
+          <div class="body" style="max-width:400px">
+            <p class="hint" style="margin-bottom:14px">Password is SHA-256 hashed in browser storage. Never stored plain in source code.</p>
+            <div class="row full"><div><label>Current password</label><input type="password" id="curP" /></div></div>
+            <div class="row full"><div><label>New password</label><input type="password" id="newP" /></div></div>
+            <div class="row full"><div><label>Confirm</label><input type="password" id="newP2" /></div></div>
+            <button type="button" class="btn btn-primary" id="chgPass">Update Password</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div class="toast-wrap" id="toastWrap"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase.js?v=14"></script>
+  <script src="admin.js?v=14"></script>
+</body>
+</html>

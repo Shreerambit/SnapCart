@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>SnapCart — Intelligence Sound Book | ₹499</title>
+  <meta name="description" content="SnapCart Intelligence Sound Book — interactive learning for kids. ₹499 only. Free shipping · COD · 7-day returns." />
+  <meta name="theme-color" content="#0071e3" />
+  <link rel="canonical" href="https://snapcart.in/" />
+  <meta property="og:title" content="SnapCart Intelligence Sound Book" />
+  <meta property="og:description" content="Learn · Play · Grow. Premium sound book at ₹499. Free shipping across India." />
+  <meta property="og:image" content="assets/images/product-front.png" />
+  <meta property="og:type" content="product" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+  <link rel="stylesheet" href="style.css?v=14" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "SnapCart Intelligence Sound Book",
+    "image": ["assets/images/product-front.png"],
+    "description": "Interactive sound book for kids ages 2+. Clear audio, 500+ sounds and words.",
+    "brand": { "@type": "Brand", "name": "SnapCart" },
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "INR",
+      "price": "499",
+      "availability": "https://schema.org/InStock"
+    },
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "2847" }
+  }
+  </script>
+</head>
+<body>
+  <div id="loader" aria-hidden="true">
+    <div class="loader-logo">Snap<span>Cart</span></div>
+    <div class="loader-bar"><i></i></div>
+  </div>
+
+  <div class="announce" aria-label="Announcements">
+    <div class="announce-track" id="announceTrack"></div>
+  </div>
+
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#home" class="logo" data-nav="home">
+        <span class="mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M4 6h12a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2z"/><path d="M18 10c2 1 3.5 2.5 3.5 4.5S20 17 18 18"/></svg>
+        </span>
+        SnapCart
+      </a>
+      <div class="nav-links">
+        <a href="#home" data-nav="home">Home</a>
+        <a href="#shop" data-nav="home" data-scroll="shop">Shop</a>
+        <a href="#about" data-nav="about">About</a>
+        <a href="#track" data-nav="track">Track Order</a>
+        <a href="#contact" data-nav="contact">Contact</a>
+        <a href="admin.html">Admin</a>
+      </div>
+      <div class="nav-actions">
+        <button type="button" class="nav-cart" id="cartBtn" aria-label="Cart">
+          <svg viewBox="0 0 24 24"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6L5 3H2"/></svg>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </button>
+        <a href="#checkout" class="btn btn-primary nav-cta" data-nav="checkout">Buy Now</a>
+        <button type="button" class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home" data-nav="home">Home</a>
+    <a href="#shop" data-nav="home" data-scroll="shop">Shop</a>
+    <a href="#about" data-nav="about">About</a>
+    <a href="#track" data-nav="track">Track Order</a>
+    <a href="#contact" data-nav="contact">Contact</a>
+    <a href="admin.html">Admin</a>
+    <a href="#checkout" data-nav="checkout" style="color:var(--blue)">Buy Now →</a>
+  </div>
+
+  <!-- HOME -->
+  <main id="page-home" class="page active">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="hero-badge">In Stock · Free Shipping</div>
+          <h1 id="heroTitle">Learning that feels<br>like <em>play</em></h1>
+          <p class="hero-sub" id="heroSub">Interactive sound book for curious kids — clear audio, joyful learning, zero screens.</p>
+          <div class="hero-ctas">
+            <button type="button" class="btn btn-primary btn-lg" id="heroBuyBtn">Buy Now — ₹499</button>
+            <a href="#shop" class="btn btn-secondary btn-lg" data-nav="home" data-scroll="shop">Shop Products</a>
+          </div>
+          <div class="hero-trust">
+            <span>COD Available</span>
+            <span>7-Day Returns</span>
+            <span>Secure Checkout</span>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-img-wrap">
+            <img src="assets/images/product-front.png" alt="SnapCart Intelligence Sound Book" id="heroImg" width="480" height="480" fetchpriority="high" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="promo-strip">
+      <div class="container promo-inner">
+        <span>🚚 Free Shipping</span>
+        <span>💵 Cash on Delivery</span>
+        <span>⚡ 24h Dispatch</span>
+        <span>🛡️ Quality Checked</span>
+        <span>↩️ Easy Returns</span>
+      </div>
+    </div>
+
+    <section class="section-sm" id="flash">
+      <div class="container">
+        <div class="section-head-row" data-reveal>
+          <div>
+            <span class="section-label">Flash Sale</span>
+            <h2 class="section-title" style="margin:0">Limited time deals</h2>
+          </div>
+          <div class="flash-timer">Ends in <strong id="flashTimer">00:00:00</strong></div>
+        </div>
+        <div class="p-grid" id="grid-flash"></div>
+      </div>
+    </section>
+
+    <section class="section section-g" id="shop">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="section-label">Shop</span>
+          <h2 class="section-title">Our products</h2>
+          <p class="section-sub">Premium learning toys parents trust.</p>
+        </div>
+        <div class="p-grid" id="grid-all"></div>
+      </div>
+    </section>
+
+    <section class="section-sm" id="bestsellers">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="section-label">Best Selling</span>
+          <h2 class="section-title">Customer favorites</h2>
+        </div>
+        <div class="p-grid" id="grid-bestsellers"></div>
+      </div>
+    </section>
+
+    <section class="section section-g" id="why">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="section-label">Why SnapCart</span>
+          <h2 class="section-title">Built for curious minds</h2>
+        </div>
+        <div class="f-grid">
+          <div class="f-card" data-reveal><div class="f-ico">⭐</div><h3>Premium Quality</h3><p>Durable, safe materials built for daily play.</p></div>
+          <div class="f-card" data-reveal><div class="f-ico">🚚</div><h3>Fast Delivery</h3><p>Dispatched in 24h. Free shipping pan-India.</p></div>
+          <div class="f-card" data-reveal><div class="f-ico">💵</div><h3>Cash on Delivery</h3><p>Pay when it arrives. No prepaid risk.</p></div>
+          <div class="f-card" data-reveal><div class="f-ico">↩️</div><h3>Easy Returns</h3><p>7-day hassle-free returns on unused items.</p></div>
+          <div class="f-card" data-reveal><div class="f-ico">🔒</div><h3>Secure Checkout</h3><p>Your details stay private and protected.</p></div>
+          <div class="f-card" data-reveal><div class="f-ico">💬</div><h3>Real Support</h3><p>Friendly help via email and phone.</p></div>
+          <div class="f-card" data-reveal><div class="f-ico">📱</div><h3>Screen-Free Fun</h3><p>Real pages, real sounds, real connection.</p></div>
+          <div class="f-card" data-reveal><div class="f-ico">❤️</div><h3>Made with Love</h3><p>Designed for Indian families.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured product buy block -->
+    <section class="section" id="productSection">
+      <div class="container">
+        <div class="product-layout">
+          <div data-reveal>
+            <div class="gallery-main" id="galleryMain" role="button" tabindex="0" aria-label="Zoom image">
+              <img src="assets/images/product-front.png" alt="SnapCart Intelligence Sound Book" id="mainImage" />
+            </div>
+            <div class="gallery-thumbs" id="galleryThumbs"></div>
+          </div>
+          <div class="product-info" data-reveal>
+            <div class="stock" id="stockStatus">In Stock — Ready to ship</div>
+            <div class="offer-badges" id="offerBadges"></div>
+            <h1 id="productName">SnapCart Intelligence Sound Book</h1>
+            <div class="rating"><span class="stars">★★★★★</span> <span>4.9 · 2,847 reviews</span></div>
+            <div class="price-row">
+              <span class="price-now" id="priceNow">₹499</span>
+              <span class="price-was" id="priceWas">₹1,299</span>
+              <span class="price-off" id="priceOff">62% OFF</span>
+            </div>
+            <p class="price-note">Inclusive of taxes · Free shipping · Limited time offer</p>
+            <div class="meta">
+              <span class="chip">Free Shipping</span>
+              <span class="chip">COD Available</span>
+              <span class="chip">3–6 Day Delivery</span>
+              <span class="chip">7-Day Returns</span>
+            </div>
+            <div class="qty-row">
+              <span class="qty-label">Quantity</span>
+              <div class="qty-ctrl">
+                <button type="button" class="qty-btn" id="qtyMinus" aria-label="Decrease">−</button>
+                <span class="qty-val" id="qtyVal">1</span>
+                <button type="button" class="qty-btn" id="qtyPlus" aria-label="Increase">+</button>
+              </div>
+            </div>
+            <div class="buy-row">
+              <button type="button" class="btn btn-primary btn-lg btn-block" id="buyNowBtn">Buy Now</button>
+              <button type="button" class="btn btn-secondary btn-lg btn-block" id="addCartBtn">Add to Cart</button>
+            </div>
+            <p class="secure">Secure order · Pay on delivery · Easy returns</p>
+            <ul class="feat-list" id="homeFeatures"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-g" id="story">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="section-label">Inside the book</span>
+          <h2 class="section-title">A world of discovery</h2>
+        </div>
+        <div class="story" data-reveal>
+          <div class="story-img"><img src="assets/images/product-rhymes.png" alt="Rhymes pages" loading="lazy" /></div>
+          <div class="story-text">
+            <h3>Rhymes kids love to tap</h3>
+            <p>Classic nursery rhymes with cheerful audio. Sing along, dance along, learn along — without a screen.</p>
+          </div>
+        </div>
+        <div class="story reverse" data-reveal>
+          <div class="story-img"><img src="assets/images/product-activities.png" alt="Activities" loading="lazy" /></div>
+          <div class="story-text">
+            <h3>Activities that stretch young minds</h3>
+            <p>Match, sort, choose, and explore — playful challenges that build real cognitive skills.</p>
+          </div>
+        </div>
+        <div class="story" data-reveal>
+          <div class="story-img"><img src="assets/images/product-practice.png" alt="Practice sheets" loading="lazy" /></div>
+          <div class="story-text">
+            <h3>Practice that builds confidence</h3>
+            <p>Clocks, alphabet animals, and gentle challenges that improve accuracy without pressure.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="howto">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="section-label">Getting started</span>
+          <h2 class="section-title">How to use</h2>
+        </div>
+        <div class="howto" data-reveal>
+          <div class="howto-step"><span class="howto-num">1</span><div><h3>Insert batteries</h3><p>Child-safe compartment with secure screw lock.</p></div></div>
+          <div class="howto-step"><span class="howto-num">2</span><div><h3>Switch on</h3><p>ON for play, OFF to save battery.</p></div></div>
+          <div class="howto-step"><span class="howto-num">3</span><div><h3>Tap the finger icon</h3><p>Simple GO button made for tiny hands.</p></div></div>
+          <div class="howto-step"><span class="howto-num">4</span><div><h3>Tap any picture</h3><p>Hear its name aloud and start learning.</p></div></div>
+        </div>
+        <div style="margin-top:32px;text-align:center" data-reveal>
+          <img src="assets/images/howto-use.png" alt="How to use" loading="lazy" style="max-width:640px;margin:0 auto;border-radius:var(--rl);box-shadow:var(--shadow-lg)" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-g" id="reviews">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="section-label">Reviews</span>
+          <h2 class="section-title">Loved by parents</h2>
+        </div>
+        <div class="rev-track" id="reviewsTrack" data-reveal></div>
+        <div class="rev-nav">
+          <button type="button" id="revPrev" aria-label="Previous">‹</button>
+          <button type="button" id="revNext" aria-label="Next">›</button>
+        </div>
+        <div class="section-head" style="margin-top:48px" data-reveal>
+          <span class="section-label">Gallery</span>
+          <h2 class="section-title">Real kids, real moments</h2>
+        </div>
+        <div class="masonry" id="reviewsMasonry" data-reveal></div>
+      </div>
+    </section>
+
+    <section class="section" id="trust">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="section-label">Trust</span>
+          <h2 class="section-title">Shop with confidence</h2>
+        </div>
+        <div class="trust-grid" data-reveal>
+          <div class="trust-card"><h3>💵 COD</h3><p>Pay only when it arrives.</p></div>
+          <div class="trust-card"><h3>🔒 Secure</h3><p>Private, protected checkout.</p></div>
+          <div class="trust-card"><h3>🚚 Free Shipping</h3><p>All India, no minimum.</p></div>
+          <div class="trust-card"><h3>⚡ Fast Dispatch</h3><p>Ships within 24 hours.</p></div>
+          <div class="trust-card"><h3>✅ Quality</h3><p>Every unit checked.</p></div>
+          <div class="trust-card"><h3>📦 Tracking</h3><p>Live order status.</p></div>
+          <div class="trust-card"><h3>↩️ Returns</h3><p>7-day easy policy.</p></div>
+          <div class="trust-card"><h3>💬 Support</h3><p>Fast human replies.</p></div>
+          <div class="trust-card"><h3>⭐ Guarantee</h3><p>Parents love SnapCart.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-g" id="faq">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="section-label">FAQ</span>
+          <h2 class="section-title">Questions, answered</h2>
+        </div>
+        <div class="faq" data-reveal id="faqList"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta" data-reveal>
+          <h2>Give the gift of curious play</h2>
+          <p>Order today — COD available · Free shipping</p>
+          <button type="button" class="btn btn-lg" id="ctaBuyBtn">Order Now — ₹499</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- PRODUCT DETAIL -->
+  <div id="page-product" class="page pdp-page">
+    <div class="container pdp-wrap">
+      <nav class="crumb" id="productCrumb"><a href="#home" data-nav="home">Home</a> <span class="crumb-sep">/</span> <span class="crumb-current">Product</span></nav>
+
+      <div class="product-layout pdp-layout">
+        <div class="pdp-gallery">
+          <div class="gallery-main" id="galleryMainPdp" role="button" tabindex="0" aria-label="Zoom image">
+            <img src="assets/images/product-front.png" alt="SnapCart Intelligence Sound Book" id="mainImagePdp" />
+          </div>
+          <div class="gallery-thumbs" id="galleryThumbsPdp"></div>
+        </div>
+
+        <div class="product-info pdp-info">
+          <div class="stock" data-bind="stockStatus">In Stock</div>
+          <div class="offer-badges" id="offerBadgesPdp"></div>
+          <h1 class="pdp-title" data-bind="productName">SnapCart Intelligence Sound Book</h1>
+          <div class="rating"><span class="stars">★★★★★</span> <span class="rating-text">4.9 · Verified reviews</span></div>
+          <div class="price-row">
+            <span class="price-now" data-bind="priceNow">₹499</span>
+            <span class="price-was" data-bind="priceWas">₹1,299</span>
+            <span class="price-off" data-bind="priceOff">62% OFF</span>
+          </div>
+          <p class="price-note">Inclusive of taxes · Free shipping</p>
+          <div class="meta">
+            <span class="chip">Free Shipping</span>
+            <span class="chip">COD</span>
+            <span class="chip">3–6 Days</span>
+            <span class="chip">7-Day Returns</span>
+          </div>
+          <p id="pdpDesc" class="pdp-desc"></p>
+          <div class="qty-row">
+            <span class="qty-label">Quantity</span>
+            <div class="qty-ctrl">
+              <button type="button" class="qty-btn" id="qtyMinusPdp" aria-label="Decrease">−</button>
+              <span class="qty-val" id="qtyValPdp">1</span>
+              <button type="button" class="qty-btn" id="qtyPlusPdp" aria-label="Increase">+</button>
+            </div>
+          </div>
+          <div class="buy-row">
+            <button type="button" class="btn btn-primary btn-lg btn-block" id="buyNowBtnPdp">Buy Now</button>
+            <button type="button" class="btn btn-secondary btn-lg btn-block" id="addCartBtnPdp">Add to Cart</button>
+          </div>
+          <ul class="feat-list" id="pdpFeatures"></ul>
+        </div>
+      </div>
+    </div>
+
+    <section class="section section-g pdp-reviews">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-label">Reviews</span>
+          <h2 class="section-title">What parents say</h2>
+        </div>
+        <div class="masonry" id="reviewsMasonryPdp"></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ABOUT -->
+  <div id="page-about" class="page">
+    <div class="page-hero"><div class="container"><h1>About SnapCart</h1><p>Learning should feel as joyful as play itself.</p></div></div>
+    <div class="about-grid">
+      <div>
+        <h2 class="section-title" style="margin-bottom:14px">Our story</h2>
+        <p>SnapCart started with a simple idea: screens were replacing play too early. We build interactive products that bring real sounds, real learning, and real connection back into childhood.</p>
+        <p>Every SnapCart product is designed for Indian families — premium quality, thoughtful interaction, and honest pricing.</p>
+        <p>Every product carries only the SnapCart name — built for Indian families.</p>
+      </div>
+      <div class="story-img">
+        <img src="assets/images/product-front.png" alt="SnapCart" loading="lazy" />
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT / SUPPORT -->
+  <div id="page-contact" class="page">
+    <div class="page-hero"><div class="container"><h1>Contact & Support</h1><p>We’re here to help — usually within a few hours.</p></div></div>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-card"><h3>Email</h3><a href="mailto:hello@snapcart.in" id="supportEmail">hello@snapcart.in</a></div>
+        <div class="contact-card"><h3>Phone</h3><p id="supportPhone">+91 98765 43210</p><p>Mon–Sat, 10 AM – 6 PM IST</p></div>
+        <div class="contact-card"><h3>WhatsApp</h3><p>Coming soon</p></div>
+        <div class="contact-card"><h3>24×7 Support</h3><p>Fast response on orders & delivery.</p></div>
+      </div>
+      <form id="contactForm" class="checkout-form">
+        <div class="form-section">
+          <h3>Send a message</h3>
+          <div class="form-grid">
+            <div class="form-group full"><label>Name <span class="req">*</span></label><input name="name" required maxlength="100" /></div>
+            <div class="form-group"><label>Email <span class="req">*</span></label><input type="email" name="email" required /></div>
+            <div class="form-group"><label>Phone</label><input name="phone" maxlength="15" /></div>
+            <div class="form-group full"><label>Message <span class="req">*</span></label><textarea name="message" rows="5" required></textarea></div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg" style="margin-top:14px">Send</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- TRACK -->
+  <div id="page-track" class="page">
+    <div class="container">
+      <div class="track-page">
+        <h1>Track Order</h1>
+        <p class="sub">Enter your Order ID from checkout confirmation.</p>
+        <form class="track-form" id="trackForm">
+          <input type="text" id="trackInput" placeholder="e.g. SC-XXXX-XXXX" required maxlength="40" />
+          <button type="submit" class="btn btn-primary">Track</button>
+        </form>
+        <div class="track-result" id="trackResult"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHECKOUT -->
+  <div id="page-checkout" class="page">
+    <div class="container">
+      <div class="checkout-wrap">
+        <form class="checkout-form" id="checkoutForm" novalidate>
+          <h2>Checkout</h2>
+          <p class="sub">Cash on Delivery · Secure & simple</p>
+          <div class="form-section">
+            <h3>Contact</h3>
+            <div class="form-grid">
+              <div class="form-group full"><label>Full Name <span class="req">*</span></label><input name="customer_name" required maxlength="100" autocomplete="name" /></div>
+              <div class="form-group"><label>Mobile <span class="req">*</span></label><input name="phone" required maxlength="10" inputmode="numeric" pattern="[6-9][0-9]{9}" placeholder="10-digit" /></div>
+              <div class="form-group"><label>Alternate Mobile</label><input name="alternate_phone" maxlength="10" inputmode="numeric" /></div>
+              <div class="form-group full"><label>Email</label><input type="email" name="email" autocomplete="email" /></div>
+            </div>
+          </div>
+          <div class="form-section">
+            <h3>Delivery Address</h3>
+            <div class="form-grid">
+              <div class="form-group full"><label>House / Flat <span class="req">*</span></label><input name="house" required /></div>
+              <div class="form-group full"><label>Street / Area <span class="req">*</span></label><input name="street" required /></div>
+              <div class="form-group full"><label>Landmark</label><input name="landmark" /></div>
+              <div class="form-group"><label>City <span class="req">*</span></label><input name="city" required /></div>
+              <div class="form-group">
+                <label>State <span class="req">*</span></label>
+                <select name="state" required>
+                  <option value="">Select</option>
+                  <option selected>Karnataka</option><option>Maharashtra</option><option>Tamil Nadu</option>
+                  <option>Telangana</option><option>Delhi</option><option>Gujarat</option>
+                  <option>Rajasthan</option><option>Uttar Pradesh</option><option>West Bengal</option>
+                  <option>Kerala</option><option>Punjab</option><option>Haryana</option><option>Other</option>
+                </select>
+              </div>
+              <div class="form-group"><label>PIN Code <span class="req">*</span></label><input name="pincode" required maxlength="6" pattern="[1-9][0-9]{5}" inputmode="numeric" /></div>
+              <div class="form-group full"><label>Order Notes</label><textarea name="order_notes" rows="2"></textarea></div>
+            </div>
+          </div>
+          <div class="form-section">
+            <h3>Payment</h3>
+            <div class="pay-card"><div class="dot"></div><div><h4>Cash on Delivery</h4><p>Pay when your order arrives.</p></div></div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg btn-block" id="placeOrderBtn">Place Order</button>
+        </form>
+        <aside class="summary">
+          <h3>Order Summary</h3>
+          <div class="sum-product">
+            <img src="assets/images/product-front.png" alt="" id="sumImg" width="68" height="68" />
+            <div>
+              <h4 id="sumName">SnapCart Intelligence Sound Book</h4>
+              <p>Qty: <span id="sumQty">1</span></p>
+              <p style="font-weight:700;color:var(--black);margin-top:4px" id="sumUnit">₹499</p>
+            </div>
+          </div>
+          <div class="sum-row"><span>Subtotal</span><span id="sumSub">₹499</span></div>
+          <div class="sum-row"><span>Shipping</span><span class="free">FREE</span></div>
+          <div class="sum-row"><span>Discount</span><span id="sumDisc" class="free">−₹800</span></div>
+          <div class="sum-row total"><span>Total</span><span id="sumTotal">₹499</span></div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUCCESS -->
+  <div id="page-success" class="page">
+    <div class="container">
+      <div class="success">
+        <div class="success-ico">✓</div>
+        <h1>Order placed!</h1>
+        <p>Thank you for shopping with SnapCart.</p>
+        <div class="order-id" id="successOrderId">SC-XXXX</div>
+        <p>Pay with cash when it arrives. Save your Order ID to track delivery.</p>
+        <div class="success-actions">
+          <a href="#track" class="btn btn-primary" data-nav="track">Track Order</a>
+          <a href="#home" class="btn btn-secondary" data-nav="home">Back to Home</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POLICIES -->
+  <div id="page-privacy" class="page">
+    <div class="page-hero"><div class="container"><h1>Privacy Policy</h1><p>Last updated: July 1, 2026</p></div></div>
+    <div class="content">
+      <h2>Information we collect</h2>
+      <p>When you order, we collect name, phone, address, and optional email. We do not store card data — COD only.</p>
+      <h2>How we use it</h2>
+      <p>To process orders, arrange delivery, and support you. We never sell your data.</p>
+      <h2>Contact</h2>
+      <p>hello@snapcart.in</p>
+    </div>
+  </div>
+  <div id="page-shipping" class="page">
+    <div class="page-hero"><div class="container"><h1>Shipping Policy</h1></div></div>
+    <div class="content">
+      <h2>Free shipping</h2>
+      <p>Free standard shipping on all orders within India.</p>
+      <h2>Timeline</h2>
+      <p>Dispatched within 24 hours. Delivery typically 3–6 business days.</p>
+      <h2>Tracking</h2>
+      <p>Use your Order ID on the Track Order page anytime.</p>
+    </div>
+  </div>
+  <div id="page-refund" class="page">
+    <div class="page-hero"><div class="container"><h1>Refund Policy</h1></div></div>
+    <div class="content">
+      <h2>7-day returns</h2>
+      <p>Unused products in original packaging may be returned within 7 days of delivery.</p>
+      <h2>Damaged items</h2>
+      <p>Contact us within 48 hours with photos for free replacement or refund.</p>
+      <h2>Refunds</h2>
+      <p>Approved COD refunds via UPI/bank transfer in 5–7 business days after we receive the return.</p>
+    </div>
+  </div>
+  <div id="page-terms" class="page">
+    <div class="page-hero"><div class="container"><h1>Terms & Conditions</h1></div></div>
+    <div class="content">
+      <h2>Orders</h2>
+      <p>Placing an order is an offer to purchase. We may cancel for stock or fraud concerns and will notify you.</p>
+      <h2>Payment</h2>
+      <p>Cash on Delivery only at this time.</p>
+      <h2>Governing law</h2>
+      <p>Laws of India. Courts of Bengaluru, Karnataka.</p>
+    </div>
+  </div>
+
+  <div id="page-404" class="page">
+    <div class="not-found">
+      <h1>404</h1>
+      <h2>Page not found</h2>
+      <p>That page doesn’t exist.</p>
+      <a href="#home" class="btn btn-primary" data-nav="home">Go Home</a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#home" class="logo" data-nav="home">
+            <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M4 6h12a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2z"/><path d="M18 10c2 1 3.5 2.5 3.5 4.5S20 17 18 18"/></svg></span>
+            SnapCart
+          </a>
+          <p>Premium interactive learning for curious kids. Designed with love in India.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <a href="#shop" data-nav="home" data-scroll="shop">All Products</a>
+          <a href="#checkout" data-nav="checkout">Buy Now</a>
+          <a href="#track" data-nav="track">Track Order</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#about" data-nav="about">About</a>
+          <a href="#contact" data-nav="contact">Contact</a>
+          <a href="#faq" data-nav="home" data-scroll="faq">FAQ</a>
+          <a href="admin.html">Admin</a>
+        </div>
+        <div class="footer-col">
+          <h4>Policies</h4>
+          <a href="#privacy" data-nav="privacy">Privacy</a>
+          <a href="#shipping" data-nav="shipping">Shipping</a>
+          <a href="#refund" data-nav="refund">Refund</a>
+          <a href="#terms" data-nav="terms">Terms</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 SnapCart. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="sticky-buy" id="stickyBuy">
+    <div class="inner">
+      <div class="price" id="stickyPrice">₹499</div>
+      <button type="button" class="btn btn-primary" id="stickyBuyBtn">Buy Now</button>
+    </div>
+  </div>
+
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Cart">
+    <div class="cart-head">
+      <h3>Your Cart</h3>
+      <button type="button" class="cart-close" id="cartClose" aria-label="Close">×</button>
+    </div>
+    <div class="cart-body" id="cartBody"></div>
+    <div class="cart-foot" id="cartFoot" style="display:none">
+      <div class="cart-total"><span>Total</span><span id="cartTotal">₹0</span></div>
+      <button type="button" class="btn btn-primary btn-block" id="cartCheckout">Checkout</button>
+    </div>
+  </aside>
+
+  <div class="lightbox" id="lightbox">
+    <button type="button" class="lb-close" id="lbClose">×</button>
+    <button type="button" class="lb-nav lb-prev" id="lbPrev">‹</button>
+    <img src="" alt="Preview" id="lbImg" />
+    <button type="button" class="lb-nav lb-next" id="lbNext">›</button>
+  </div>
+
+  <button type="button" class="support-fab" id="supportFab" aria-label="Support">💬</button>
+  <div class="toast-wrap" id="toastWrap"></div>
+  <canvas id="confetti" style="position:fixed;inset:0;pointer-events:none;z-index:9998"></canvas>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase.js?v=14"></script>
+  <script src="script.js?v=14"></script>
+</body>
+</html>
